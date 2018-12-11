@@ -1,0 +1,141 @@
+<?php echo $__env->make("layouts.admin.main", array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+<!-- page content -->
+<div class="right_col" role="main">
+  <?php if(Auth::check()): ?>
+  <?php endif; ?>
+
+  <div class="">
+    <div class="page-title">
+      <div class="title_left">
+        <h3>ร้านอินเตอร์เน็ตคาเฟ่</h3>
+      </div>
+
+      <div class="title_right">
+        <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
+          <div class="input-group">
+            <input type="text" class="form-control" placeholder="Search for...">
+            <span class="input-group-btn">
+              <button class="btn btn-default" type="button">Go!</button>
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="clearfix"></div>
+
+    <div class="row">
+      <div class="col-md-12 col-sm-12 col-xs-12">
+        <div class="x_panel">
+          <div class="x_title">
+            <h2>รายการทั้งหมด</h2>
+            <ul class="nav navbar-right panel_toolbox">
+              <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+              </li>
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                <ul class="dropdown-menu" role="menu">
+                  <li><a href="#">Settings 1</a>
+                  </li>
+                  <li><a href="#">Settings 2</a>
+                  </li>
+                </ul>
+              </li>
+              <li><a class="close-link"><i class="fa fa-close"></i></a>
+              </li>
+            </ul>
+            <div class="clearfix"></div>
+          </div>
+          <div class="x_content">
+            <h2>จัดการข้อมูลร้าน</h2>
+            <br>
+            <br>
+            <?php echo Button::primary('เพิ่มรายการร้านใหม่')->asLinkTo('create'); ?><br>
+              <?php if(Session::has('message')): ?>
+
+              <br><div class="alert alert-success" data-dismiss="alert"> <?php echo Session::get('message'); ?>
+
+              </div>
+              <?php endif; ?>
+              <hr>
+              <table class="table table-bordered">
+                <thead>
+                  <tr>
+                    <td class="text-center">รหัสร้าน</td>
+                    <td class="text-center">ชื่อร้าน</td>
+                    <td class="text-center">ที่อย่ร้าน</td>
+                    <td class="text-center">เกี่ยวกับร้าน</td>
+                    <td class="text-center">ราคาบริการ</td>
+                    <td class="text-center">เวลาให้บริการ</td>
+                    <td class="text-center">จำนวนคอมพิวเตอร์</td>
+                    <td class="text-center">จำนวนห้องน้ำ</td>
+                    <td class="text-center">Wifi</td>
+                    <td class="text-center">จ่ายบิล</td>
+                    <td class="text-center">แลกคูปอง</td>
+                    <td class="text-center">AirPay</td>
+                    <td class="text-center">Food</td>
+                    <td class="text-center" hidden="true">วันที่สร้าง</td>
+                    <td class="text-center" hidden="true">วันที่แก้ไข</td>
+                    <td class="text-center">จัดการ</td>
+                  </tr>
+                </thead>
+                <tbody>
+                  <?php foreach($list as $key => $value): ?>
+                  <tr>
+                    <td> <span class="badge"><?php echo $value->id; ?></span></td>
+                    <td><?php echo $value->name; ?></td>
+                    <td><?php echo $value->address; ?></td>
+                    <td><?php echo $value->about; ?></td>
+                    <td><?php echo $value->pricerange; ?></td>
+                    <td><?php echo $value->openhour; ?></td>
+                    <td><?php echo $value->num_com; ?></td>
+                    <td><?php echo $value->num_toilet; ?></td>
+                    <td><?php if($value->wifi == 1): ?>
+                    <span class="glyphicon glyphicon-ok"></span>
+                    <?php elseif($value->wifi == 0): ?>
+                    <span class="glyphicon glyphicon-remove"></span>
+                    <?php endif; ?></td>
+                    <td><?php if($value->paybill == 1): ?>
+                    <span class="glyphicon glyphicon-ok"></span>
+                    <?php elseif($value->paybill == 0): ?>
+                    <span class="glyphicon glyphicon-remove"></span>
+                    <?php endif; ?></td>
+                    <td><?php if($value->coupon == 1): ?>
+                    <span class="glyphicon glyphicon-ok"></span>
+                    <?php elseif($value->coupon == 0): ?>
+                    <span class="glyphicon glyphicon-remove"></span>
+                    <?php endif; ?></td>
+                    <td><?php if($value->airpay == 1): ?>
+                    <span class="glyphicon glyphicon-ok"></span>
+                    <?php elseif($value->airpay == 0): ?>
+                    <span class="glyphicon glyphicon-remove"></span>
+                    <?php endif; ?></td>
+                    <td><?php if($value->food == 1): ?>
+                    <span class="glyphicon glyphicon-ok"></span>
+                    <?php elseif($value->food == 0): ?>
+                    <span class="glyphicon glyphicon-remove"></span>
+                    <?php endif; ?></td>
+                    <td hidden="true"><?php echo $value->created_at; ?></td>
+                    <td hidden="true"><?php echo $value->updated_at; ?></td>
+                    <td><a class="btn btn-success" href="<?php echo URL::to('admin/list/show/'.$value->id); ?>">ดู</a>
+                    <a class="btn btn-info" href="<?php echo URL::to('admin/list/edit/'.$value->id.''); ?>">แก้ไข</a>
+                    <?php echo Form::open(array('url'=>'admin/list/delete/'.$value->id,'class'=>'pull-right')); ?>
+
+                    <?php echo Form::hidden('_method','DELETE'); ?>
+
+                    <?php echo Form::submit('ลบ',array('class'=> 'btn btn-danger')); ?>
+
+                    <?php echo Form::close(); ?>
+
+                  </td>
+                  </tr>
+                  <?php endforeach; ?>
+                </tbody>
+              </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- /page content -->

@@ -1,0 +1,14 @@
+<?php echo $__env->make("layouts.admin.main", array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+<div class="right_col">
+  <br>
+  <h2>รายละเอียดประเภท</h2>
+  <hr>
+
+  <div class="text-left">
+
+    <?php echo $service->cafeType_name;; ?>
+
+
+    </p>
+  </div>
+</div>

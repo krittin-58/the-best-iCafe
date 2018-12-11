@@ -1,0 +1,43 @@
+<?php $__env->startSection("layouts.admin.main"); ?>
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!-- Meta, title, CSS, favicons, etc. -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Dashboard iCafe</title>
+    <?php echo HTML::style('assets/admin/vendors/bootstrap/dist/css/bootstrap.min.css'),
+      HTML::style('assets/admin/vendors/font-awesome/css/font-awesome.min.css'),
+      HTML::style('assets/admin/vendors/nprogress/nprogress.css'),
+      HTML::style('assets/admin/build/css/custom.min.css'),
+      HTML::style('assets/admin/vendors/switchery/dist/switchery.min.css'); ?>
+
+
+  </head>
+
+  <body class="nav-md">
+    <div class="container body">
+      <!-- นำเข้าไฟล์ /admin/sidemenu.blade.php -->
+      <?php echo $__env->make("layouts.admin.sidemenu", array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+      <!-- นำเข้าไฟล์ /admin/topmenu.blade.php -->
+        <?php echo $__env->make("layouts.admin.topmenu", array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+
+
+
+
+
+
+  </body>
+  <?php echo HTML::script('assets/admin/vendors/jquery/dist/jquery.min.js'),
+    HTML::script('assets/admin/vendors/bootstrap/dist/js/bootstrap.min.js'),
+    HTML::script('assets/admin/vendors/fastclick/lib/fastclick.js'),
+    HTML::script('assets/admin/vendors/nprogress/nprogress.js'),
+    HTML::script('assets/admin/build/js/custom.min.js'),
+    HTML::script('assets/admin/vendors/switchery/dist/switchery.min.js'),
+    HTML::script('assets/admin/vendors/Chart.js/dist/Chart.min.js'),
+    HTML::script('assets/admin/vendors/jquery-knob/dist/jquery.knob.min.js'); ?>
+
+<?php echo $__env->make("layouts.admin.footer", array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+</html>

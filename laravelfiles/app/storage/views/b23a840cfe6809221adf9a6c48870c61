@@ -1,0 +1,134 @@
+
+
+    <!-- Main container -->
+    <main>
+      <section class="no-padding-top bg-alt " >
+        <div class="container">
+          <div class="row ">
+
+            <div class="col-xs-12">
+              <br>
+              <h5 style="color:black;">พบจำนวน <strong><?php echo $countList; ?></strong> รายการ, คุณกำลังดู <i><?php echo $countList; ?></i> จาก <i><?php echo $countList; ?></i></h5>
+              <?php if(Auth::check()): ?>
+              <a class="btn btn-primary pull-right" href="<?php echo URL::to('admin/list/create'); ?>">เพิ่มรายการใหม่</a>
+              <?php endif; ?>
+            </div>
+
+            <!-- <table class="table table-bordered">
+              <thead>
+                <tr>
+                  <td class="text-center">รหัสร้าน</td>
+                  <td class="text-center">ชื่อร้าน</td>
+                  <td class="text-center">ที่อย่ร้าน</td>
+                  <td class="text-center">ช่วงราคาบริการ</td>
+                  <td class="text-center">ช่วงเวลาให้บริการ</td>
+                  <td class="text-center">จำนวนคอมพิวเตอร์</td>
+                  <td class="text-center">จำนวนห้องน้ำ</td>
+
+                </tr>
+              </thead>
+              <tbody>
+                <?php foreach($list as $key => $value): ?>
+                <tr>
+                  <td><?php echo $value->id; ?></td>
+                  <td><?php echo $value->name; ?></td>
+                  <td><?php echo $value->address; ?></td>
+                  <td><?php echo $value->pricerange; ?></td>
+                  <td><?php echo $value->openhour; ?></td>
+                  <td><?php echo $value->num_com; ?></td>
+                  <td><?php echo $value->num_toilet; ?></td>
+
+                </tr>
+                <?php endforeach; ?>
+              </tbody>
+            </table>  -->
+            <div class="row ">
+              <!-- Resume detail -->
+              <?php foreach($list as $key => $value): ?>
+              <div class="col-sm-12 col-md-6 ">
+
+                <a class="item-block " href="<?php echo URL::to('list/detail/'.$value->id); ?>">
+                  <header>
+
+                    <img class="resume-avatar" src="assets/img/transfer.png" alt="">
+                    <div class="hgroup">
+                      <h4><?php echo $value->name; ?></h4>
+                      <h5>ID: <?php echo $value->id; ?></h5>
+                    </div>
+                  </header>
+
+                  <div class="item-body ">
+
+                    <p><?php echo $value->about; ?></p>
+                  </div>
+
+                  <footer>
+                    <ul class="details cols-3" style="">
+                      <li>
+                        <i class="fa fa-map-marker"></i>
+                        <span class="label label-success"><?php echo $value->address; ?></span>
+                      </li>
+
+
+                    </ul>
+                  </footer>
+                </a>
+              </div>
+              <!-- END Resume detail -->
+              <?php endforeach; ?>
+
+            </div>
+
+            <!-- Job item
+            <?php foreach($list as $key => $value): ?>
+            <div class="col-xs-12">
+
+              <a class="item-block" href="<?php echo URL::to('list/detail/'.$value->id); ?>">
+                <header>
+                  <img src="#" alt="">
+                  <div class="hgroup">
+                    <h1><?php echo $value->name; ?></h1>
+                    <h2>ID: <?php echo $value->id; ?></h2>
+
+                  </div>
+                  <time ><h3 class="badge"><?php echo $value->updated_at; ?></h3> </time>
+                </header>
+
+                <div class="item-body">
+                  <p><?php echo $value->about; ?></p>
+                </div>
+
+                <footer>
+                  <ul class="details cols-3">
+                    <li>
+                      <i class="fa fa-map-marker"></i>
+                      <span><?php echo $value->address; ?></span>
+                    </li>
+
+                    <li>
+                      <i class="fa fa-money"></i>
+                      <span><?php echo $value->pricerange; ?> บาท</span>
+                    </li>
+
+                    <li>
+                      <i class="ti-timer"></i>
+                      <span><?php echo $value->openhour; ?> </span>
+                    </li>
+                  </ul>
+                </footer>
+              </a>
+              <?php endforeach; ?>
+            </div> -->
+
+
+            <!-- END Job item -->
+        </div>
+
+
+          <!-- Page navigation -->
+
+
+        </div>
+      </section>
+    </main>
+    <!-- END Main container -->

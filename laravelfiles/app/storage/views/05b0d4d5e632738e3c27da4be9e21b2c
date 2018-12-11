@@ -1,0 +1,91 @@
+<?php echo $__env->make("layouts.admin.main", array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+<div class="right_col" role="main">
+  <?php if(Auth::check()): ?>
+  <?php endif; ?>
+
+  <div class="">
+    <div class="page-title">
+      <div class="title_left">
+        <h3>เพิ่มร้านอินเตอร์เน็ตคาเฟ่ใหม่</h3>
+      </div>
+
+      <div class="title_right">
+        <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
+          <div class="input-group">
+            <input type="text" class="form-control" placeholder="Search for...">
+            <span class="input-group-btn">
+              <button class="btn btn-default" type="button">Go!</button>
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="clearfix"></div>
+
+    <div class="row">
+      <div class="col-md-12 col-sm-12 col-xs-12">
+        <div class="x_panel">
+          <div class="x_title">
+            <h2>แก้ไขบริการ</h2>
+            <ul class="nav navbar-right panel_toolbox">
+              <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+              </li>
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                <ul class="dropdown-menu" role="menu">
+                  <li><a href="#">Settings 1</a>
+                  </li>
+                  <li><a href="#">Settings 2</a>
+                  </li>
+                </ul>
+              </li>
+              <li><a class="close-link"><i class="fa fa-close"></i></a>
+              </li>
+            </ul>
+            <div class="clearfix"></div>
+          </div>
+          <div class="x_content">
+              <div class="">
+                <?php if(!empty($message)): ?>
+                <p class="help-block"><?php echo $message; ?></p>
+                <?php endif; ?>
+                <?php echo Form::model($service, array(
+                  'route' => array('admin/categories/update',$service->id),
+                  "class" => "form-horizontal",
+                  "method" => "POST",
+                  )); ?>
+
+                      <span class="section">Edit services</span>
+
+                      <div class="item form-group <?php if($errors->has('cafeType_name')): ?> has-error <?php endif; ?>">
+                        <?php echo Form::label('cafeType_name',' Name *',['class'=>'control-label col-sm-3 ti-user']); ?>
+
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                          <?php echo Form::text('cafeType_name',Input::get('cafeType_name'),array('class' => 'form-control col-md-7 col-xs-12','placeholder' => 'ชื่อประเภท')); ?>
+
+                          <?php if($errors->has('cafeType_name')): ?>
+                          <p class="help-block"><?php echo $errors->first('cafeType_name'); ?></p>
+                          <?php endif; ?>
+                        </div>
+                      </div>
+
+                      <div class="ln_solid"></div>
+                      <div class="form-group">
+                        <div class="col-md-6 col-md-offset-3">
+                          <?php echo Form::reset('ยกเลิก',array('class' => 'btn btn-warning')); ?>
+
+                          <?php echo Form::submit('บันทึก',array('class' => 'btn btn-success')); ?>
+
+                        </div>
+                      </div>
+                    <?php echo Form::close(); ?>
+
+              </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- /page content -->

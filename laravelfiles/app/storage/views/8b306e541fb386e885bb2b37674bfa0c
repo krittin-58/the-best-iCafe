@@ -1,0 +1,161 @@
+<?php echo $__env->make("layouts.admin.main", array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+<div class="right_col" role="main">
+  <?php if(Auth::check()): ?>
+  <?php endif; ?>
+
+  <div class="">
+    <div class="page-title">
+      <div class="title_left">
+        <h3>เพิ่มร้านอินเตอร์เน็ตคาเฟ่ใหม่</h3>
+      </div>
+
+      <div class="title_right">
+        <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
+          <div class="input-group">
+            <input type="text" class="form-control" placeholder="Search for...">
+            <span class="input-group-btn">
+              <button class="btn btn-default" type="button">Go!</button>
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="clearfix"></div>
+
+    <div class="row">
+      <div class="col-md-12 col-sm-12 col-xs-12">
+        <div class="x_panel">
+          <div class="x_title">
+            <h2>แก้ไขข้อมูลร้าน</h2>
+            <ul class="nav navbar-right panel_toolbox">
+              <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+              </li>
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                <ul class="dropdown-menu" role="menu">
+                  <li><a href="#">Settings 1</a>
+                  </li>
+                  <li><a href="#">Settings 2</a>
+                  </li>
+                </ul>
+              </li>
+              <li><a class="close-link"><i class="fa fa-close"></i></a>
+              </li>
+            </ul>
+            <div class="clearfix"></div>
+          </div>
+          <div class="x_content">
+              <div class="">
+                <?php if(!empty($message)): ?>
+                <p class="help-block"><?php echo $message; ?></p>
+                <?php endif; ?>
+                <?php echo Form::model($list, array(
+                  'route' => array('admin/list/update',$value->id),
+                  "class" => "form-horizontal",
+                  "method" => "POST",
+                  )); ?>
+
+                      <span class="section">Edit InternetCafe</span>
+
+                      <div class="item form-group <?php if($errors->has('name')): ?> has-error <?php endif; ?>">
+                        <?php echo Form::label('name',' Name *',['class'=>'control-label col-sm-3 ti-user']); ?>
+
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                          <?php echo Form::text('name',Input::get('name'),array('class' => 'form-control col-md-7 col-xs-12','placeholder' => 'ชื่อประเภท')); ?>
+
+                          <?php if($errors->has('name')): ?>
+                          <p class="help-block"><?php echo $errors->first('name'); ?></p>
+                          <?php endif; ?>
+                        </div>
+                      </div>
+                      <div class="item form-group <?php if($errors->has('address')): ?> has-error <?php endif; ?>">
+                        <?php echo Form::label('address',' ที่อยู่ร้าน *',['class'=>'control-label col-sm-3 ti-user']); ?>
+
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                          <?php echo Form::text('address',Input::get('address'),array('class' => 'form-control col-md-7 col-xs-12','placeholder' => 'เช่น หลัง ม.รังสิต')); ?>
+
+                          <?php if($errors->has('address')): ?>
+                          <p class="help-block"><?php echo $errors->first('address'); ?></p>
+                          <?php endif; ?>
+                        </div>
+                      </div>
+                      <div class="item form-group <?php if($errors->has('about')): ?> has-error <?php endif; ?>">
+                        <?php echo Form::label('about',' เกี่ยวกับร้านนี้ *',['class'=>'control-label col-sm-3 ti-user']); ?>
+
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                          <?php echo Form::textarea('about',Input::get('about'),array('class' => 'form-control col-md-7 col-xs-12','placeholder' => 'เช่น ประวัติร้านแห่งนี้','row' => '3')); ?>
+
+                          <?php if($errors->has('about')): ?>
+                          <p class="help-block"><?php echo $errors->first('about'); ?></p>
+                          <?php endif; ?>
+                        </div>
+                      </div>
+                      <div class="item form-group <?php if($errors->has('pricerange')): ?> has-error <?php endif; ?>">
+                        <?php echo Form::label('pricerange',' ช่วงราคาให้บริการ *',['class'=>'control-label col-sm-3 ti-user']); ?>
+
+                        <div class="col-md-3 col-sm-6 col-xs-12">
+                          <?php echo Form::text('pricerange',Input::get('pricerange'),array('class' => 'form-control col-md-3 col-xs-12','placeholder' => '15 - 100 ')); ?>
+
+                          <span class="glyphicon glyphicon-bitcoin form-control-feedback right" aria-hidden="true"></span>
+                          <?php if($errors->has('pricerange')): ?>
+                          <p class="help-block"><?php echo $errors->first('pricerange'); ?></p>
+                          <?php endif; ?>
+                        </div>
+                      </div>
+                      <div class="item form-group <?php if($errors->has('openhour')): ?> has-error <?php endif; ?>">
+                        <?php echo Form::label('openhour',' ช่วงเวลาให้บริการ *',['class'=>'control-label col-sm-3 ti-user']); ?>
+
+                        <div class="col-md-3 col-sm-6 col-xs-12">
+                          <?php echo Form::select('openhour',array(
+                          'null' => null,
+                          '10.00 - 24.00' => '10.00 - 24.00',
+                          'เปิดตลอดทั้งวัน' => 'เปิดตลอดทั้งวัน')); array('class' => 'form-control col-md-3 col-xs-12'); ?>
+
+                          <?php if($errors->has('openhour')): ?>
+                          <p class="help-block"><?php echo $errors->first('openhour'); ?></p>
+                          <?php endif; ?>
+                        </div>
+                      </div>
+                      <div class="item form-group <?php if($errors->has('num_com')): ?> has-error <?php endif; ?>">
+                        <?php echo Form::label('num_com',' จำนวนคอมพิวเตอร์ *',['class'=>'control-label col-sm-3 ti-user']); ?>
+
+                        <div class="col-md-2 col-sm-6 col-xs-12">
+                          <?php echo Form::text('num_com',Input::get('num_com'),array('class' => 'form-control col-md-3 col-xs-12','placeholder' => '150 เครื่อง')); ?>
+
+                          <span class="glyphicon glyphicon-blackboard form-control-feedback right" aria-hidden="true"></span>
+                          <?php if($errors->has('num_com')): ?>
+                          <p class="help-block"><?php echo $errors->first('num_com'); ?></p>
+                          <?php endif; ?>
+                        </div>
+                      </div>
+                      <div class="item form-group <?php if($errors->has('num_toilet')): ?> has-error <?php endif; ?>">
+                        <?php echo Form::label('num_toilet',' จำนวนห้องน้ำ *',['class'=>'control-label col-sm-3 ti-user']); ?>
+
+                        <div class="col-md-2 col-sm-6 col-xs-12">
+                          <?php echo Form::text('num_toilet',Input::get('num_toilet'),array('class' => 'form-control col-md-2 col-xs-12','placeholder' => '4')); ?>
+
+                          <span class="glyphicon glyphicon-tint form-control-feedback right" aria-hidden="true"></span>
+                          <?php if($errors->has('num_toilet')): ?>
+                          <p class="help-block"><?php echo $errors->first('num_toilet'); ?></p>
+                          <?php endif; ?>
+                        </div>
+                      </div>
+                      <div class="ln_solid"></div>
+                      <div class="form-group">
+                        <div class="col-md-6 col-md-offset-3">
+                          <?php echo Form::reset('ยกเลิก',array('class' => 'btn btn-warning')); ?>
+
+                          <?php echo Form::submit('บันทึก',array('class' => 'btn btn-success')); ?>
+
+                        </div>
+                      </div>
+                    <?php echo Form::close(); ?>
+
+              </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
