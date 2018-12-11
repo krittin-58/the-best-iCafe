@@ -1,0 +1,15 @@
+
+<p>search</p>
+
+
+<?php foreach($searchList as $key => $value): ?>
+<div class="row">
+  <div class="container jumbotron">
+
+    <p><?php echo $value['name']; ?> || <?php echo $value['address']; ?></p>
+  </div>
+</div>
+
+
+
+<?php endforeach; ?>

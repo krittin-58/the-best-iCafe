@@ -1,0 +1,96 @@
+<!-- Main container -->
+    <main>
+      <section class="no-padding-top bg-alt">
+        <div class="container-fluid">
+          <div class="row">
+
+            <h2></h2>
+            <hr>
+            <div class="">
+              <?php if(!empty($message)): ?>
+              <p class="help-block"><?php echo $message; ?></p>
+              <?php endif; ?>
+                <?php echo HTML::ul($errors->all()); ?>
+
+                <?php echo Form::open([
+                  "url" => "list",
+                  "method" => "GET",
+                  "files" => true,
+                  "class" => "form-horizontal",
+                  ]); ?>
+
+                    <span class="section"></span>
+
+                    <div class="panel panel-info">
+                      <div class="panel-heading">
+                        <h2 class="panel-title">Review <small>ให้คะแนน</small></h2>
+                      </div>
+                      <div class="panel-body">
+                        <div class="row">
+                          <div class="">
+
+                            <div class="form-group">
+
+                            <div class="col-md-6 col-sm-6 col-xs-12">
+
+                              <h2>ชื่อ:</h2>
+                              <input type="text" class="form-control" >
+                              <h2>ความคิดเห็น</h2>
+                              <textarea class="form-control" rows="3"></textarea>
+                              <!-- <div class="col-md-2 ">
+
+                                <p>ราคา</p>
+
+                                <?php echo Form::number('price_score','0',["class" => "knob",
+                                "data-width" => "100","data-height" => "100", "data-min" => "0", "data-displayPrevious" => true, "data-fgColor" => "#26B98A","value" => "0"]); ?>
+
+                                <?php if($errors->has('price_score')): ?>
+                                <p class="help-block"><?php echo $errors->first('price_score'); ?></p>
+                                <?php endif; ?>
+                              </div>
+
+
+                              <div class="col-md-2">
+                                <p>การบริการ</p>
+                                <input class="knob" name="service_score" data-width="100" data-height="100" data-min="0" data-displayPrevious=true data-fgColor="#26B99A" value="0">
+                              </div>
+                              <div class="col-md-2">
+                                <p>สภาพแวดล้อม</p>
+                                <input class="knob" name="env_score" data-width="100" data-height="100" data-min="0" data-displayPrevious=true data-fgColor="#26B99A" value="0">
+                              </div>
+                              <div class="col-md-2">
+                              <p>การเดินทาง</p>
+                              <input class="knob" name="transport_score" data-width="100" data-height="100" data-min="0" data-displayPrevious=true data-fgColor="#26B99A" value="0">
+                            </div>
+                            <div class="col-md-2">
+                            <p>สะดวกสบาย</p>
+                            <input class="knob" name="comfort_score" data-width="100" data-height="100" data-min="0" data-displayPrevious=true data-fgColor="#26B99A" value="0">
+                          </div>
+
+                            </div>
+
+                          </div>-->
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+
+                    <div class="form-group">
+                      <div class="col-md-offset-1">
+                        <?php echo Form::reset('ยกเลิก',array('class' => 'btn btn-warning')); ?>
+
+                        <?php echo Form::submit('บันทึก',array('class' => 'btn btn-success')); ?>
+
+                      </div>
+                    </div>
+                  <?php echo Form::close(); ?>
+
+            </div>
+
+          </div>
+
+
+      </section>
+    </main>
+    <!-- END Main container -->

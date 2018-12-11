@@ -1,0 +1,120 @@
+<!-- Page header -->
+
+    <header class="bg-img size-lg " >
+      <div class="container">
+
+        <div class="header-detail">
+          <div class="row"  >
+
+
+          </div>
+
+
+          <div class="hgroup">
+            <h2 style="text-size:20px;" ><?php echo $list['name']; ?></h2>
+
+          </div>
+          <time datetime="2016-03-03 20:00">Date:<span class="badge"><?php echo $list['updated_at']; ?> </span></time>
+          <hr>
+          <p class="lead"><?php echo $list['about']; ?></p>
+
+          <ul class="details cols-3">
+            <li>
+              <i class="fa fa-map-marker fa-2x"></i>
+              <span class="label label-primary"><?php echo $list['address']; ?></span>
+            </li>
+
+            <li>
+              <i class="fa fa-money fa-2x"></i>
+              <span class="label label-primary"><?php echo $list['pricerange']; ?> บาท / ชั่วโมง</span>
+            </li>
+
+            <li>
+              <i class="fa fa-clock-o fa-2x"></i>
+              <span class="label label-primary"><?php echo $list['openhour']; ?></span>
+            </li>
+
+
+            <li>
+              <i class="fa fa-wifi fa-2x"></i>
+              <span><?php if($list['wifi'] == 1): ?>
+              <span class="label label-success">มีบริการ WIFI</span>
+              <?php elseif($list['wifi'] == 0): ?>
+              <span class="label label-danger">ไม่มีบริการ WIFI</span>
+              <?php endif; ?></span>
+            </li>
+
+            <li>
+              <i class="fa fa-credit-card fa-2x"></i>
+              <span><?php if($list['paybill'] == 1): ?>
+              <span class="label label-success">มีบริการ</span>
+              <?php elseif($list['paybill'] == 0): ?>
+              <span class="label label-danger">ไม่มีบริการ</span>
+              <?php endif; ?></span>
+            </li>
+
+            <li>
+              <i class="fa fa-ticket fa-2x"></i>
+              <span><?php if($list['coupon'] == 1): ?>
+              <span class="label label-success">แลกคูปองก่อน</span>
+              <?php elseif($list['coupon'] == 0): ?>
+              <span class="label label-danger">ไม่ต้องแลกคูปองก่อน</span>
+              <?php endif; ?></span>
+            </li>
+
+            <li>
+              <i class="fa fa-paypal fa-2x"></i>
+              <span><?php if($list['airpay'] == 1): ?>
+              <span class="label label-success">มีบริการ AirPay</span>
+              <?php elseif($list['airpay'] == 0): ?>
+              <span class="label label-danger">ไม่มีบริการ AirPay</span>
+              <?php endif; ?></span>
+            </li>
+
+            <li>
+              <i class="fa fa-cutlery fa-5x"></i>
+              <span><?php if($list['food'] == 1): ?>
+              <span class="label label-success">มีบริการอาหาร</span>
+              <?php elseif($list['food'] == 0): ?>
+              <span class="label label-danger">ไม่มีบริการอาหาร</span>
+              <?php endif; ?></span>
+            </li>
+          </ul>
+
+          <div class="button-group">
+            <ul class="social-icons">
+              <li class="title">Share on</li>
+              <li><a class="facebook" href="#"><i class="fa fa-facebook"></i></a></li>
+              <li><a class="google-plus" href="#"><i class="fa fa-google-plus"></i></a></li>
+              <li><a class="twitter" href="#"><i class="fa fa-twitter"></i></a></li>
+              <li><a class="linkedin" href="#"><i class="fa fa-linkedin"></i></a></li>
+            </ul>
+
+            <div class="action-buttons pull-right">
+              <a class="btn btn-primary" href="<?php echo URL::to('/review/create'); ?>">รีวิวร้านนี้!</a>
+
+            </div>
+          </div>
+          <div class="clearfix"></div>
+          <div class="row">
+            <hr>
+            <div class="well">
+
+
+
+	<!--JQuery Code-->
+	<script src="https://code.jquery.com/jquery-3.1.0.min.js
+"></script>
+                  </div>
+
+
+
+                </div>
+          </div>
+        </div>
+      </div>
+    </header>
+    <!-- END Page header -->
+    <?php echo HTML::script('assets/js/expanding.js'),
+    HTML::script('assets/js/starrr.js'); ?>
+

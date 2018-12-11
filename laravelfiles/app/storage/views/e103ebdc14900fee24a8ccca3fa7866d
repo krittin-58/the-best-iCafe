@@ -1,0 +1,131 @@
+<?php echo $__env->make("layouts.admin.main", array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+<div class="right_col">
+  <?php if(Auth::check()): ?>
+  <?php endif; ?>
+
+  <div class="">
+    <div class="page-title">
+      <div class="title_left">
+        <h3>ร้านอินเตอร์เน็ตคาเฟ่</h3>
+      </div>
+
+      <div class="title_right">
+        <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
+          <div class="input-group">
+            <input type="text" class="form-control" placeholder="Search for...">
+            <span class="input-group-btn">
+              <button class="btn btn-default" type="button">Go!</button>
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="clearfix"></div>
+
+    <div class="row">
+      <div class="col-md-12 col-sm-12 col-xs-12">
+        <div class="x_panel">
+          <div class="x_title">
+            <h2>รายการทั้งหมด</h2>
+            <ul class="nav navbar-right panel_toolbox">
+              <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+              </li>
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                <ul class="dropdown-menu" role="menu">
+                  <li><a href="#">Settings 1</a>
+                  </li>
+                  <li><a href="#">Settings 2</a>
+                  </li>
+                </ul>
+              </li>
+              <li><a class="close-link"><i class="fa fa-close"></i></a>
+              </li>
+            </ul>
+            <div class="clearfix"></div>
+          </div>
+          <div class="x_content">
+            <h2>จัดการข้อมูลร้าน</h2>
+            <table class="table table-bordered">
+              <tr>
+                <td>รหัสร้าน:</td>
+                <td><span class="badge"><?php echo $list['id']; ?></span></td>
+              </tr>
+              <tr>
+                <td>ชื่อ:</td>
+                <td><?php echo $list['name']; ?></td>
+              </tr>
+              <tr>
+                <td>ที่อยู่ร้าน:</td>
+                <td><?php echo $list['address']; ?></td>
+              </tr>
+              <tr>
+                <td>เกี่ยวกับร้าน:</td>
+                <td><?php echo $list['about']; ?></td>
+              </tr>
+              <tr>
+                <td>ช่วงราคาบริการ:</td>
+                <td><?php echo $list['pricerange']; ?> บาท</td>
+              </tr>
+              <tr>
+                <td>ช่วงเวลาบริการ:</td>
+                <td><?php echo $list['openhour']; ?></td>
+              </tr>
+              <tr>
+                <td>คอมพิวเตอร์ที่พร้อมบริการ:</td>
+                <td><?php echo $list['num_com']; ?> เครื่อง</td>
+              </tr>
+              <tr>
+                <td>ห้องน้ำ:</td>
+                <td><?php echo $list['num_toilet']; ?> ห้อง</td>
+              </tr>
+              <tr>
+                <td>บริการ Wifi:</td>
+                <td><!-- บริการ wifi -->
+                <?php if($list['wifi'] == 1): ?>
+                <span class="glyphicon glyphicon-ok"></span>
+                <?php elseif($list['wifi'] == 0): ?>
+                <span class="glyphicon glyphicon-remove"></span>
+                <?php endif; ?></td>
+              </tr>
+              <tr>
+                <td>บริการชำระบิล:</td>
+                <td><?php if($list['paybill'] == 1): ?>
+                <span class="glyphicon glyphicon-ok"></span>
+                <?php elseif($list['paybill'] == 0): ?>
+                <span class="glyphicon glyphicon-remove"></span>
+                <?php endif; ?></td>
+              </tr>
+              <tr>
+                <td>แลกคูปองก่อน:</td>
+                <td><?php if($list['coupon'] == 1): ?>
+                <span class="glyphicon glyphicon-ok"></span>
+                <?php elseif($list['coupon'] == 0): ?>
+                <span class="glyphicon glyphicon-remove"></span>
+                <?php endif; ?></td>
+              </tr>
+              <tr>
+                <td>บริการของ AirPay:</td>
+                <td><?php if($list['airpay'] == 1): ?>
+                <span class="glyphicon glyphicon-ok"></span>
+                <?php elseif($list['airpay'] == 0): ?>
+                <span class="glyphicon glyphicon-remove"></span>
+                <?php endif; ?></td>
+              </tr>
+              <tr>
+                <td>บริการอาหาร เครื่องดื่ม:</td>
+                <td><?php if($list['food'] == 1): ?>
+                <span class="glyphicon glyphicon-ok"></span>
+                <?php elseif($list['food'] == 0): ?>
+                <span class="glyphicon glyphicon-remove"></span>
+                <?php endif; ?></td>
+              </tr>
+            </table>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,88 @@
+
+    <!-- Main container -->
+        <main>
+          <section class="no-padding-top bg-alt">
+            <div class="container">
+              <div class="row">
+
+                <div class="col-xs-12">
+                  <br>
+                  <h5>We found <strong>-</strong></h5>
+                </div>
+
+
+              </div>
+
+              <div class="row">
+                <!-- Resume detail -->
+                <div class="col-sm-12 col-md-6">
+                  <a class="item-block" href="#">
+                    <header>
+                      <img class="resume-avatar" src="assets/img/avatar-1.jpg" alt="">
+                      <div class="hgroup">
+                        <h4>Cafe Name</h4>
+                        <h5>by: </h5>
+                      </div>
+                    </header>
+
+                    <div class="item-body">
+
+                      <p>คะแนน</p>
+                      <div class="tag-list">
+                        <span>ราคา</span>
+                        <span>การบริการ</span>
+                        <span>สภาพแวดล้อม</span>
+                        <span>การเดินทาง</span>
+                        <span>อุปกรณ์</span>
+                        <span>สะดวกสบาย</span>
+                      </div>
+                    </div>
+
+                    <footer>
+                      <ul class="details cols-2">
+                        <li>
+                          <i class="fa fa-map-marker"></i>
+                          <span>Fairfield, IA</span>
+                        </li>
+
+                        <li>
+                          <i class="fa fa-money"></i>
+                          <span>$60 / hour</span>
+                        </li>
+                      </ul>
+                    </footer>
+                  </a>
+                </div>
+                <!-- END Resume detail -->
+
+              </div>
+
+
+
+
+              <!-- Page navigation -->
+              <nav class="text-center">
+                <ul class="pagination">
+                  <li>
+                    <a href="#" aria-label="Previous">
+                      <i class="ti-angle-left"></i>
+                    </a>
+                  </li>
+                  <li><a href="#">1</a></li>
+                  <li class="active"><a href="#">2</a></li>
+                  <li><a href="#">3</a></li>
+                  <li><a href="#">4</a></li>
+                  <li>
+                    <a href="#" aria-label="Next">
+                      <i class="ti-angle-right"></i>
+                    </a>
+                  </li>
+                </ul>
+              </nav>
+              <!-- END Page navigation -->
+
+
+            </div>
+          </section>
+        </main>
+        <!-- END Main container -->
